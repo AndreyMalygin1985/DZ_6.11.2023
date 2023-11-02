@@ -11,6 +11,22 @@ class Contacts {
 	char workPhone[15];
 	char mobilePhone[15];
 	char otherInfo[256];
+	
+public:
+	
+	/*void fillByUser();
+	{
+		cout << "”кажите ‘»ќ: ";
+		cin >> fio;
+		cout << "”кажите домашний телефон: ";
+		cin >> homePhone;
+		cout << "”кажите рабочий телефон: ";
+		cin >> workPhone;
+		cout << "”кажите мобильный телефон: ";
+		cin >> mobilePhone;
+		cout << "”кажите дополнительную информацию о контакте: ";
+		cin >> otherInfo;
+	}*/
 
 	void show()
 	{

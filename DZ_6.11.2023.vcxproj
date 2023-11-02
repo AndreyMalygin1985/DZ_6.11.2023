@@ -127,7 +127,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Contacts.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="PhoneBook.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Contacts.h" />
