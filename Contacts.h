@@ -4,33 +4,38 @@
 
 using namespace std;
 
-class Contacts {
+class Contacts
+{
+	char* fio;
+	char* homePhone;
+	char* workPhone;
+	char* mobilePhone;
+	char* otherInfo;
 
-	char fio[256];
-	char homePhone[15];
-	char workPhone[15];
-	char mobilePhone[15];
-	char otherInfo[256];
-	
 public:
-	
-	/*void fillByUser();
+
+	Contacts(const char* fio, const char* homePhone, const char* workPhone, const char* mobilePhone, const char* otherInfo) :
+		fio{ fio ? new char[strlen(fio) + 1] : nullptr },
+		homePhone{ homePhone ? new char[strlen(homePhone) + 1] : nullptr },
+		workPhone{ workPhone ? new char[strlen(workPhone) + 1] : nullptr },
+		mobilePhone{ mobilePhone ? new char[strlen(mobilePhone) + 1] : nullptr },
+		otherInfo{ fio ? new char[strlen(otherInfo) + 1] : nullptr }
 	{
-		cout << "Укажите ФИО: ";
-		cin >> fio;
-		cout << "Укажите домашний телефон: ";
-		cin >> homePhone;
-		cout << "Укажите рабочий телефон: ";
-		cin >> workPhone;
-		cout << "Укажите мобильный телефон: ";
-		cin >> mobilePhone;
-		cout << "Укажите дополнительную информацию о контакте: ";
-		cin >> otherInfo;
-	}*/
+		if (fio && homePhone && workPhone && mobilePhone && otherInfo)
+		{
+			strcpy_s(this->fio, strlen(fio) + 1, fio);
+			strcpy_s(this->homePhone, strlen(homePhone) + 1, homePhone);
+			strcpy_s(this->workPhone, strlen(workPhone) + 1, workPhone);
+			strcpy_s(this->mobilePhone, strlen(mobilePhone) + 1, mobilePhone);
+			strcpy_s(this->otherInfo, strlen(otherInfo) + 1, otherInfo);
+		}
+	};
+
+	//Contacts() :Contacts(nullptr, 0, 0, 0, nullptr) {}
 
 	void show()
 	{
-		cout << "Name: " << fio << "\t HP: " << homePhone << "\tWP: " << workPhone
-			<< "\tMP: " << mobilePhone << "\t Other - " << otherInfo << endl;
-	}
+		cout << "ФИО: " << fio << "\nДом тел: " << homePhone << "\nРаб тел: " << workPhone
+			<< "\nМоб тел: " << mobilePhone << "\nИнфа: " << otherInfo << endl;
+	};
 };

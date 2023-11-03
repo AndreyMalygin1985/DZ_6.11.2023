@@ -9,7 +9,7 @@ class PhoneBook {
 	Contacts* contact;
 	size_t sizePhoneBook;
 
-	void fillByUser(Contacts contact);
+	//void fillByUser(Contacts contact);
 	/*{
 		cout << "Óêàæèòå ÔÈÎ: ";
 		cin >> fio;
