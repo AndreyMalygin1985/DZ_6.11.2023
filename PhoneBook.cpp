@@ -1,16 +1,11 @@
-#include "PhoneBook.h"
-#include "Contacts.h"
+п»ї#include "PhoneBook.h"
 
-//void PhoneBook::fillByUser(Contacts contact)
-//{
-//	cout << "Укажите ФИО: ";
-//	cin >> fio;
-//	cout << "Укажите домашний телефон: ";
-//	cin >> homePhone;
-//	cout << "Укажите рабочий телефон: ";
-//	cin >> workPhone;
-//	cout << "Укажите мобильный телефон: ";
-//	cin >> mobilePhone;
-//	cout << "Укажите дополнительную информацию о контакте: ";
-//	cin >> otherInfo;
-//}
+void Contacts::show()
+{
+	cout << "РџРѕР»СЊР·РѕРІР°С‚РµР»СЊ: " << id << endl;
+	cout << "Р¤РРћ: " << fio << endl;
+	cout << "Р”РѕРј С‚РµР»: " << homePhone << endl;
+	cout << "Р Р°Р± С‚РµР»: " << workPhone << endl;
+	cout << "РњРѕР± С‚РµР»: " << mobilePhone << endl;
+	cout << "Р”РѕРї РёРЅС„Р°: " << otherInfo << endl;
+}

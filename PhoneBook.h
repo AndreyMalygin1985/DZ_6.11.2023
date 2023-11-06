@@ -1,38 +1,64 @@
 #pragma once
 #include<iostream>
 #include<Windows.h>
-#include"Contacts.h"
 
 using namespace std;
 
-class PhoneBook {
-	Contacts* contact;
-	size_t sizePhoneBook;
+class Contacts
+{
+	static unsigned int count_instance;
+	unsigned int id;
+	char* fio;
+	char* homePhone;
+	char* workPhone;
+	char* mobilePhone;
+	char* otherInfo;
 
-	//void fillByUser(Contacts contact);
-	/*{
-		cout << "”кажите ‘»ќ: ";
-		cin >> fio;
-		cout << "”кажите домашний телефон: ";
-		cin >> homePhone;
-		cout << "”кажите рабочий телефон: ";
-		cin >> workPhone;
-		cout << "”кажите мобильный телефон: ";
-		cin >> mobilePhone;
-		cout << "”кажите дополнительную информацию о контакте: ";
-		cin >> otherInfo;
-	}*/
-	/*void show()
+public:
+
+	Contacts(const char* fio, const char* homePhone, const char* workPhone, const char* mobilePhone, const char* otherInfo) :
+		id{ count_instance },
+		fio{ fio ? new char[strlen(fio) + 1] : nullptr },
+		homePhone{ homePhone ? new char[strlen(homePhone) + 1] : nullptr },
+		workPhone{ workPhone ? new char[strlen(workPhone) + 1] : nullptr },
+		mobilePhone{ mobilePhone ? new char[strlen(mobilePhone) + 1] : nullptr },
+		otherInfo{ fio ? new char[strlen(otherInfo) + 1] : nullptr }
 	{
-		cout << "Name: " << fio << "\t HP: " << homePhone << "\tWP: " << workPhone
-			<< "\tMP: " << mobilePhone << "\t Other - " << otherInfo << endl;
+		if (fio && homePhone && workPhone && mobilePhone && otherInfo)
+		{
+			strcpy_s(this->fio, strlen(fio) + 1, fio);
+			strcpy_s(this->homePhone, strlen(homePhone) + 1, homePhone);
+			strcpy_s(this->workPhone, strlen(workPhone) + 1, workPhone);
+			strcpy_s(this->mobilePhone, strlen(mobilePhone) + 1, mobilePhone);
+			strcpy_s(this->otherInfo, strlen(otherInfo) + 1, otherInfo);
+		}
+		count_instance++;
+	};
+
+	char const* getFio() {
+		return fio;
 	}
-	PhoneBook(char p_fio, char p_homePhone, char p_workPhone, char p_mobilePhone, char p_otherInfo)
-	{
-		fio = p_fio;
-		homePhone = p_homePhone;
-		workPhone = p_workPhone;
-		mobilePhone = p_mobilePhone;
-		otherInfo = p_otherInfo;
-	}*/
+	char const* getHomePhone() {
+		return homePhone;
+	}
+	char const* getWorkPhone() {
+		return workPhone;
+	}
+	char const* getMobilePhone() {
+		return mobilePhone;
+	}
+	char const* getOtherInfo() {
+		return otherInfo;
+	}
+
+	~Contacts() {
+		delete[] fio;
+		delete[] homePhone;
+		delete[] workPhone;
+		delete[] mobilePhone;
+		delete[] otherInfo;
+		count_instance--;
+	}
+
+	void show();
 };
