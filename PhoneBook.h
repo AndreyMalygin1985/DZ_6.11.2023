@@ -2,8 +2,6 @@
 #include<iostream>
 #include<Windows.h>
 
-using namespace std;
-
 class Contacts
 {
 	static unsigned int count_instance;
